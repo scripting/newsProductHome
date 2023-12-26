@@ -33,6 +33,7 @@
 			<script src="//s3.amazonaws.com/scripting.com/code/feedland/home/getfeedinfo.js"></script>
 			<script src="//s3.amazonaws.com/scripting.com/code/feedland/home/riverviewer.js"></script>
 			<link href="//s3.amazonaws.com/scripting.com/code/feedland/home/riverviewer.css" rel="stylesheet" type="text/css">
+			<link href="//s3.amazonaws.com/scripting.com/code/feedland/home/mobile.css" rel="stylesheet" type="text/css">
 			<script src="//s3.amazonaws.com/fargo.io/code/markdownConverter.js"></script>
 		
 		<!-- This stuff is needed for tabsManager -->
@@ -40,16 +41,17 @@
 			<script src="//s3.amazonaws.com/scripting.com/code/tabsmanager/code.js"></script>
 		
 		<!-- This stuff is needed for newsProduct -->
-			<link href="//s3.amazonaws.com/scripting.com/code/testing/newsproducthome/styles.css" rel="stylesheet" type="text/css">
-			<script src="//s3.amazonaws.com/scripting.com/code/testing/newsproducthome/code.js"></script>
+			<link href="//s3.amazonaws.com/scripting.com/code/newsproducthome/styles.css" rel="stylesheet" type="text/css">
+			<script src="//s3.amazonaws.com/scripting.com/code/newsproducthome/code.js"></script>
 			<link href='//fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
 		
 		<!-- This stuff is needed for outlineDialog -->
 			<link rel="stylesheet" href="//s3.amazonaws.com/scripting.com/code/outlinedialog/styles.css"> 
 			<script src="//s3.amazonaws.com/scripting.com/code/outlinedialog/code.js"></script>
 		
-		<link rel="stylesheet" href="//s3.amazonaws.com/scripting.com/code/testing/newsproducthome/testing/styles.css"> 
-		<script src="//s3.amazonaws.com/scripting.com/code/testing/newsproducthome/testing/code.js"></script>
+		<link rel="stylesheet" href="//s3.amazonaws.com/scripting.com/code/newsproducthome/styles.css"> 
+		<link rel="stylesheet" href="//s3.amazonaws.com/scripting.com/code/newsproducthome/mobile.css"> 
+		<script src="//s3.amazonaws.com/scripting.com/code/newsproducthome/code.js"></script>
 		
 		<script>
 			var appConsts = {
@@ -81,23 +83,19 @@
 							<div class="divXmlIcon">XML</div>
 							</a>
 						</div>
-					<center>
-						<table cellpadding=4 border=0>
-							<tr>
-								<td>
-									<div class="divProductLogo" id="idProductLogo">
-										[%pageImage%]
-										</div>
-									</td>
-								<td>
-									<div class="divNameAndTagline">
-										<div class="divProductTitle" id="idProductTitle">[%pageTitle%]</div></a>
-										<div class="divProductTagline" id="idProductTagline">[%pageDescription%]</div>
-										</div>
-									</td>
-								</tr>
-							</table>
-						</center>
+					
+					<div class="divTopOfPageText">
+						<div class="divProductLogo">
+							[%pageImage%]
+							</div>
+						<div class="divNameAndTagline">
+							<div class="divProductTitle">[%pageTitle%]</div>
+							<div class="divProductTagline">[%pageDescription%]</div>
+							</div>
+						</div
+					
+					
+					
 					</div>
 				</div>
 			</div>

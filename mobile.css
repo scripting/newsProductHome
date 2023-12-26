@@ -1,0 +1,39 @@
+@media screen and (max-width: 576px) { /* the official number used by bootstrap toolkit */
+	.divPageBody {
+		width: 98%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 0px;
+		}
+	.divNewsProduct {
+		width: 100%;
+		}
+	.divNewsProduct .divPageTop {
+		margin-bottom: 10px;
+		padding-bottom: 10px;
+		}
+	.divNewsProduct .divTopOfPageText {
+		width: 100%;
+		text-align: center;
+		display: block;
+		}
+	.divNewsProduct .divProductLogo {
+		display: none;
+		}
+	.divNewsProduct .divNameAndTagline {
+		width: 100%;
+		display: block;
+		}
+	.divNewsProduct .divProductTitle {
+		width: 100%;
+		display: block;
+		font-size: 40px;
+		letter-spacing: -1px;
+		text-align: center;
+		}
+	.divNewsProduct .divProductTagline {
+		width: 100%;
+		display: block;
+		font-size: 12px;
+		text-align: center;
+		}

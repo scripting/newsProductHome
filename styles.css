@@ -20,6 +20,18 @@ body {
 .divNewsProduct .divOpmlLink {
 	margin-right: 10px;
 	}
+
+.divNewsProduct .divTopOfPageText {
+	display: table-row;
+	text-align: center;
+	}
+.divNewsProduct .divProductLogo {
+	display: table-cell;
+	padding-right: 5px;
+	}
+.divNewsProduct .divNameAndTagline {
+	display: table-cell;
+	}
 .divNewsProduct .divProductTitle {
 	font-family: "Oswald";
 	font-size: 42px;
