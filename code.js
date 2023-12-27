@@ -78,6 +78,14 @@ function startup () {
 		deleteTabCallback,
 		getInfoTableForTab
 		};
-	tabsManager (options);
+	
+	const myTabs = new tabsManager (options);
+	
+	$(".divXmlIcon").click (function () {
+		console.log ("divXmlIcon");
+		const theTab = myTabs.getActiveTab ();
+		console.log (jsonStringify (theTab));
+		});
+	
 	hitCounter ();
 	}
