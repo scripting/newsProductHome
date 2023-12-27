@@ -37,3 +37,7 @@
 		font-size: 12px;
 		text-align: center;
 		}
+	.divNewsProduct .divTabsContainer .divTabs {
+		display: flex;
+		justify-content: center;
+		}

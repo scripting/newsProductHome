@@ -41,6 +41,15 @@ var theTabs =  {
 		}
 	}
 
+function getOpmlUrl (screenname, catname) {
+	function encode (s) {
+		return (encodeURIComponent (stringLower (s)));
+		}
+	var url = "https://feedland.com/opml?screenname=" + encode (theTab.screenname) + "&catname=" + encode (theTab.catname);
+	return (url);
+	}
+
+
 function startup () {
 	console.log ("startup");
 	console.log ("startup: appConsts == " + jsonStringify (appConsts)); //1/17/23 by DW
@@ -74,6 +83,7 @@ function startup () {
 		containerClass: "divNewsProductTabsContainer",
 		nameActiveTab: allparams.tab,
 		flCloseBoxes: true,
+		flCloseBoxesJustBeep: true, //want them visible, but want them to do nothing but beep
 		theTabs,
 		deleteTabCallback,
 		getInfoTableForTab
@@ -82,9 +92,13 @@ function startup () {
 	const myTabs = new tabsManager (options);
 	
 	$(".divXmlIcon").click (function () {
-		console.log ("divXmlIcon");
 		const theTab = myTabs.getActiveTab ();
-		console.log (jsonStringify (theTab));
+		function encode (s) {
+			return (encodeURIComponent (s));
+			}
+		const url = getOpmlUrl (theTab.screenname, theTab.catname);
+		console.log (url);
+		window.open (url);
 		});
 	
 	hitCounter ();

@@ -13,11 +13,13 @@ body {
 	margin-right: auto;
 	}
 .divNewsProduct .divPageTop {
-	width: 100%;
+	display: flex;
+	justify-content: center;
 	margin-bottom: 25px;
 	}
 .divNewsProduct .divOpmlLink {
 	margin-right: 10px;
+	margin-top: 25px;
 	}
 
 .divNewsProduct .divTopOfPageText {
