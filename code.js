@@ -45,14 +45,25 @@ function getOpmlUrl (screenname, catname) {
 	function encode (s) {
 		return (encodeURIComponent (stringLower (s)));
 		}
-	var url = "https://feedland.com/opml?screenname=" + encode (theTab.screenname) + "&catname=" + encode (theTab.catname);
+	var url = "https://feedland.com/opml?screenname=" + encode (screenname) + "&catname=" + encode (catname);
 	return (url);
 	}
 
+function httpsOnly () { //redirect to https if http
+	if (location.host != "localhost:1340") {
+		if (location.protocol == "http:") {
+			let newhref = "https" + stringDelete (location.href, 1, 4);
+			location.href = newhref;
+			}
+		}
+	}
 
 function startup () {
 	console.log ("startup");
 	console.log ("startup: appConsts == " + jsonStringify (appConsts)); //1/17/23 by DW
+	
+	httpsOnly (); //redirect to https if http
+	
 	const allparams = getAllUrlParams (location.search);
 	function deleteTabCallback (tabRec) {
 		console.log ("deleteTabCallback: tabRec == " + jsonStringify (tabRec));
