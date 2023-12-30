@@ -5,7 +5,7 @@ var appPrefs = { //default prefs for not-logged-in users
 var theTabs =  {
 	all: {
 		name: "All",
-		description: "News from all the feeds Dave is following.",
+		description: "News from all the feeds Dave is following..",
 		screenname: "davewiner",
 		catname: "All"
 		},
@@ -48,23 +48,54 @@ function getOpmlUrl (screenname, catname) {
 	var url = "https://feedland.com/opml?screenname=" + encode (screenname) + "&catname=" + encode (catname);
 	return (url);
 	}
-
+function getCodeFromSpec (specElement) {
+	var scripttext = "";
+	if (Array.isArray (specElement)) {
+		specElement.forEach (function (s) {
+			scripttext += s + "\n";
+			});
+		}
+	else {
+		scripttext = specElement.toString ();
+		}
+	return (scripttext);
+	}
+function insertCustomStyles (theStyles) {
+	if (theStyles !== undefined) {
+		$("head").append ($("<style>" + getCodeFromSpec (theStyles) + "</style>"));
+		}
+	}
+function insertStartupScript (theScript) {
+	if (theScript !== undefined) {
+		$("head").append ($("<script>" + getCodeFromSpec (theScript) + "</script>"));
+		}
+	}
 function httpsOnly () { //redirect to https if http
-	if (location.host != "localhost:1340") {
-		if (location.protocol == "http:") {
-			let newhref = "https" + stringDelete (location.href, 1, 4);
-			location.href = newhref;
+	if (location.host != "localhost:1452") {
+		if (location.host != "localhost:1340") {
+			if (location.protocol == "http:") {
+				let newhref = "https" + stringDelete (location.href, 1, 4);
+				location.href = newhref;
+				}
 			}
 		}
 	}
 
 function startup () {
 	console.log ("startup");
-	console.log ("startup: appConsts == " + jsonStringify (appConsts)); //1/17/23 by DW
+	console.log ("startup: appConsts == " + jsonStringify (appConsts)); 
+	console.log ("startup: theNewsProductSpec == " + jsonStringify (theNewsProductSpec)); 
+	
+	function clickOpmlIcon () {
+		const theTab = myTabs.getActiveTab ();
+		const url = getOpmlUrl (theTab.screenname, theTab.catname);
+		window.open (url);
+		}
 	
 	httpsOnly (); //redirect to https if http
 	
 	const allparams = getAllUrlParams (location.search);
+	
 	function deleteTabCallback (tabRec) {
 		console.log ("deleteTabCallback: tabRec == " + jsonStringify (tabRec));
 		}
@@ -89,9 +120,9 @@ function startup () {
 		add ("</table>");
 		return (htmltext);
 		}
+	
 	const options = {
 		whereToAppend: $(".divNewsProduct"),
-		containerClass: "divNewsProductTabsContainer",
 		nameActiveTab: allparams.tab,
 		flCloseBoxes: true,
 		flCloseBoxesJustBeep: true, //want them visible, but want them to do nothing but beep
@@ -100,17 +131,16 @@ function startup () {
 		getInfoTableForTab
 		};
 	
+	if (theNewsProductSpec !== undefined) { //12/28/23 by DW
+		options.theTabs = theNewsProductSpec.tabs;
+		}
+	
 	const myTabs = new tabsManager (options);
 	
-	$(".divXmlIcon").click (function () {
-		const theTab = myTabs.getActiveTab ();
-		function encode (s) {
-			return (encodeURIComponent (s));
-			}
-		const url = getOpmlUrl (theTab.screenname, theTab.catname);
-		console.log (url);
-		window.open (url);
-		});
+	insertCustomStyles (theNewsProductSpec.style);
+	insertStartupScript (theNewsProductSpec.script);
+	
+	$(".divXmlIcon").click (clickOpmlIcon);
 	
 	hitCounter ();
 	}
