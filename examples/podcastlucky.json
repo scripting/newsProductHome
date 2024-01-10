@@ -1,0 +1,19 @@
+{
+	"title": "podcasts.lucky.wtf",
+	"description": "A good podcast listen now.",
+	"image": "https://imgs.scripting.com/2023/12/24/slugger.png",
+	"script": "console.log ('Hello Podcasting World')",
+	"style": [
+		".divProductTagline {font-style: italic}",
+		".divProductTagline {color: blue}"
+		],
+	"tabs": {
+		"podcasts": {
+			"name": "Podcasts",
+			"description": "Podcasts that Dave is following.",
+			"filter": "feedItem.enclosure !== undefined",
+			"screenname": "davewiner",
+			"catname": "podcasts"
+			}
+		}
+	}

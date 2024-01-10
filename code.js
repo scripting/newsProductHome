@@ -76,9 +76,11 @@ function httpsOnly () { //redirect to https if http
 			if (location.protocol == "http:") {
 				let newhref = "https" + stringDelete (location.href, 1, 4);
 				location.href = newhref;
+				return; //1/10/24 by DW
 				}
 			}
 		}
+	hitCounter ();
 	}
 
 function startup () {
@@ -128,7 +130,11 @@ function startup () {
 		flCloseBoxesJustBeep: true, //want them visible, but want them to do nothing but beep
 		theTabs,
 		deleteTabCallback,
-		getInfoTableForTab
+		getInfoTableForTab,
+		tabClickCallback: function (tabRec) { //12/31/23 by DW
+			console.log ("tabClickCallback: tabRec == " + jsonStringify (tabRec));
+			hitCounter ();
+			}
 		};
 	
 	if (theNewsProductSpec !== undefined) { //12/28/23 by DW
@@ -141,6 +147,4 @@ function startup () {
 	insertStartupScript (theNewsProductSpec.script);
 	
 	$(".divXmlIcon").click (clickOpmlIcon);
-	
-	hitCounter ();
 	}

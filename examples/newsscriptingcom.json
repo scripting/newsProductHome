@@ -1,0 +1,48 @@
+{
+	"title": "news.scripting.com",
+	"description": "It's even worse than it appears.",
+	"image": "https://imgs.scripting.com/2023/12/24/slugger.png",
+	"script": "console.log ('Hello World')",
+	"style": [
+		".divProductTagline {font-style: italic}",
+		".divProductTagline {color: blue}"
+		],
+	"tabs": {
+		"all": {
+			"name": "All",
+			"description": "News from all the feeds <i>Dave</i> is following.",
+			"screenname": "davewiner",
+			"catname": "All"
+			},
+		"politics": {
+			"name": "Politics",
+			"description": "Political news from the feeds Dave is following.",
+			"screenname": "davewiner",
+			"catname": "politics"
+			},
+		"tech": {
+			"name": "Tech",
+			"description": "Tech news from the feeds Dave is following.",
+			"screenname": "davewiner",
+			"catname": "tech"
+			},
+		"podcasts": {
+			"name": "Podcasts",
+			"description": "Podcasts that Dave is following.",
+			"screenname": "davewiner",
+			"catname": "podcasts"
+			},
+		"bloggers": {
+			"name": "Bloggers",
+			"description": "News from an eclectic collection of bloggers.",
+			"screenname": "davewiner",
+			"catname": "bloggers"
+			},
+		"dave": {
+			"name": "Dave",
+			"description": "News from all of Dave's feeds, hopefully not too much repetition.",
+			"screenname": "davewiner",
+			"catname": "dave"
+			}
+		}
+	}
