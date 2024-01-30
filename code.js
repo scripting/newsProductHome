@@ -60,6 +60,12 @@ function getCodeFromSpec (specElement) {
 		}
 	return (scripttext);
 	}
+function appendScript (scripttext) {
+	$("head").append ($("<script>" + scripttext + "</script>"));
+	}
+function appendStyle (styletext) {
+	$("head").append ($("<style>" + styletext + "</style>"));
+	}
 function insertCustomStyles (theStyles) {
 	if (theStyles !== undefined) {
 		$("head").append ($("<style>" + getCodeFromSpec (theStyles) + "</style>"));
@@ -68,6 +74,49 @@ function insertCustomStyles (theStyles) {
 function insertStartupScript (theScript) {
 	if (theScript !== undefined) {
 		$("head").append ($("<script>" + getCodeFromSpec (theScript) + "</script>"));
+		}
+	}
+function insertIncludes (theIncludes, callback) { //1/30/24 by DW
+	if (theIncludes !== undefined) {
+		var theList = new Array ();
+		if (Array.isArray (theIncludes)) {
+			theIncludes.forEach (function (s) {
+				theList.push (s);
+				});
+			}
+		else {
+			theList.push (theIncludes.toString ());
+			}
+		console.log ("insertIncludes: theList == " + jsonStringify (theList));
+		function doNext (ix) {
+			if (ix >= theList.length) {
+				callback ();
+				}
+			else {
+				const url = theList [ix];
+				httpRequest (url, undefined, undefined, function (err, filetext) {
+					if (err) {
+						console.log ("insertIncludes: url == " + url + ", err.message == " + err.message);
+						}
+					else {
+						if (endsWith (url, ".css")) {
+							appendStyle (filetext);
+							}
+						else {
+							if (endsWith (url, ".js")) {
+								appendScript (filetext);
+								}
+							else {
+								console.log ("insertIncludes: url == " + url + ", file name must end with .css or .js");
+								}
+							}
+						}
+					doNext (ix + 1);
+					});
+				
+				}
+			}
+		doNext (0);
 		}
 	}
 function httpsOnly () { //redirect to https if http
@@ -145,6 +194,9 @@ function startup () {
 	
 	insertCustomStyles (theNewsProductSpec.style);
 	insertStartupScript (theNewsProductSpec.script);
+	
+	insertIncludes (theNewsProductSpec.include, function () { //1/30/24 by DW
+		});
 	
 	$(".divXmlIcon").click (clickOpmlIcon);
 	}

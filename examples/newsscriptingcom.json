@@ -8,11 +8,11 @@
 		".divProductTagline {color: blue}"
 		],
 	"tabs": {
-		"all": {
-			"name": "All",
-			"description": "News from all the feeds <i>Dave</i> is following.",
+		"tech": {
+			"name": "Tech",
+			"description": "Tech news from the feeds Dave is following.",
 			"screenname": "davewiner",
-			"catname": "All"
+			"catname": "tech"
 			},
 		"politics": {
 			"name": "Politics",
@@ -20,17 +20,17 @@
 			"screenname": "davewiner",
 			"catname": "politics"
 			},
-		"tech": {
-			"name": "Tech",
-			"description": "Tech news from the feeds Dave is following.",
-			"screenname": "davewiner",
-			"catname": "tech"
-			},
 		"podcasts": {
 			"name": "Podcasts",
 			"description": "Podcasts that Dave is following.",
 			"screenname": "davewiner",
 			"catname": "podcasts"
+			},
+		"dave": {
+			"name": "Dave",
+			"description": "News from all of Dave's feeds, hopefully not too much repetition.",
+			"screenname": "davewiner",
+			"catname": "dave"
 			},
 		"bloggers": {
 			"name": "Bloggers",
@@ -38,11 +38,11 @@
 			"screenname": "davewiner",
 			"catname": "bloggers"
 			},
-		"dave": {
-			"name": "Dave",
-			"description": "News from all of Dave's feeds, hopefully not too much repetition.",
+		"all": {
+			"name": "All",
+			"description": "News from all the feeds <i>Dave</i> is following.",
 			"screenname": "davewiner",
-			"catname": "dave"
+			"catname": "All"
 			}
 		}
 	}
