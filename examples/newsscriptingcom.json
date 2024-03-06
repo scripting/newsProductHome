@@ -1,28 +1,36 @@
 {
 	"title": "news.scripting.com",
-	"description": "It's even worse than it appears.",
+	"description": "News from Dave Winer's feed list.  <a href=\"https://this.how/newsScriptingCom/\" target=\"_blank\" title=\"About news.scripting.com.\"><i class=\"fa fa-info-circle\"></i></a>",
 	"image": "https://imgs.scripting.com/2023/12/24/slugger.png",
 	"script": "console.log ('Hello World')",
 	"style": [
-		".divProductTagline {font-style: italic}",
-		".divProductTagline {color: blue}"
+		".divProductTagline a {color: green;}",
+		".divProductTagline i {font-size: 16px;}",
+		".divProductTagline {font-style: italic;}",
+		".divProductTagline {color: black;}"
 		],
 	"tabs": {
+		"all": {
+			"name": "All",
+			"description": "All the feeds in all the tabs.",
+			"screenname": "davewiner",
+			"catname": "All"
+			},
 		"tech": {
 			"name": "Tech",
-			"description": "Tech news from the feeds Dave is following.",
+			"description": "Tech news.",
 			"screenname": "davewiner",
 			"catname": "tech"
 			},
 		"politics": {
 			"name": "Politics",
-			"description": "Political news from the feeds Dave is following.",
+			"description": "Political news.",
 			"screenname": "davewiner",
 			"catname": "politics"
 			},
 		"podcasts": {
 			"name": "Podcasts",
-			"description": "Podcasts that Dave is following.",
+			"description": "Podcasts.",
 			"screenname": "davewiner",
 			"catname": "podcasts"
 			},
@@ -34,15 +42,9 @@
 			},
 		"bloggers": {
 			"name": "Bloggers",
-			"description": "News from an eclectic collection of bloggers.",
+			"description": "News from feeds in the scripting.com blogroll (coming soon!).",
 			"screenname": "davewiner",
-			"catname": "bloggers"
-			},
-		"all": {
-			"name": "All",
-			"description": "News from all the feeds <i>Dave</i> is following.",
-			"screenname": "davewiner",
-			"catname": "All"
+			"catname": "blogroll"
 			}
 		}
 	}

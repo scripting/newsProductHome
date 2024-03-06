@@ -45,7 +45,7 @@ function getOpmlUrl (screenname, catname) {
 	function encode (s) {
 		return (encodeURIComponent (stringLower (s)));
 		}
-	var url = "https://feedland.com/opml?screenname=" + encode (screenname) + "&catname=" + encode (catname);
+	var url = appConsts.urlFeedlandServer + "opml?screenname=" + encode (screenname) + "&catname=" + encode (catname); //3/5/24 by DW
 	return (url);
 	}
 function getCodeFromSpec (specElement) {

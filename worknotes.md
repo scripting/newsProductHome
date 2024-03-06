@@ -1,3 +1,9 @@
+#### 2/26/24; 1:46:41 PM by DW
+
+appConsts.urlFeedlandServer was hard-coded to feedland.com. 
+
+not! good! 
+
 #### 1/30/24; 2:05:37 PM by DW
 
 You can now add a "include" element at the top level of your spec.
